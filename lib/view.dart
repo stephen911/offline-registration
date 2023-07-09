@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 
 class LoadAndViewCsvPage extends StatelessWidget {
   final String path;
-  const LoadAndViewCsvPage(this.path) ;
+  const LoadAndViewCsvPage(this.path, {super.key}) ;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Load and View Csv data'),
+        title: const Text('Load and View Csv data'),
       ),
-      body: SingleChildScrollView()
+      body: const SingleChildScrollView()
     );
   }
 
@@ -26,11 +26,11 @@ class LoadAndViewCsvPage extends StatelessWidget {
     etc
   ]
   */
-  Future<List<List<dynamic>>> _loadCsvData() async {
-    final file = new File(path).openRead();
-    return await file
-        .transform(utf8.decoder)
-        .transform(new CsvToListConverter())
-        .toList();
-  }
+  // Future<List<List<dynamic>>> _loadCsvData() async {
+  //   final file = new File(path).openRead();
+  //   return await file
+  //       .transform(utf8.decoder)
+  //       .transform(new CsvToListConverter())
+  //       .toList();
+  // }
 }

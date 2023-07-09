@@ -1,41 +1,44 @@
 import 'dart:io';
 import 'dart:math';
-import 'dart:ui';
+// import 'dart:ui';
 // import 'package:ext_storage/ext_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
+// import 'package:permission_handler/permission_handler.dart';
 import 'package:tucee_registration/db/notes_database.dart';
 // import 'package:tucee_registration/configs/ioc.dart';
 import 'package:tucee_registration/model/note.dart';
 // import 'package:tucee_registration/models/baseball.model.dart';
-import 'view.dart';
+// import 'view.dart';
 // import 'package:tucee_registration/pages/code_examples/pdf_and_csv/view_csv_data.dart';
 // import 'package:tucee_registration/tucee_registrations/sqlite_basebal_team.service.dart';
 // import 'package:service/shared/widgets/crud_demo_list_item.widget.dart';
 import 'package:csv/csv.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:tucee_registration/csv.dart';
-import 'package:tucee_registration/db/notes_database.dart';
-import 'package:tucee_registration/model/note.dart';
-import 'package:tucee_registration/page/edit_note_page.dart';
-import 'package:tucee_registration/page/note_detail_page.dart';
-import 'package:tucee_registration/widget/note_card_widget.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+// import 'package:tucee_registration/csv.dart';
+// import 'package:tucee_registration/db/notes_database.dart';
+// import 'package:tucee_registration/model/note.dart';
+// import 'package:tucee_registration/page/edit_note_page.dart';
+// import 'package:tucee_registration/page/note_detail_page.dart';
+// import 'package:tucee_registration/widget/note_card_widget.dart';
 
+// ignore: must_be_immutable
 class CsvGeneratorDemo extends StatelessWidget {
+  CsvGeneratorDemo({super.key});
+
   // final SqliteBaseballService _databaseService =
   //     Ioc.get<SqliteBaseballService>();
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double width = size.width;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Download CSV'),
-          actions: <Widget>[
+          title: const Text('Download CSV'),
+          actions: const <Widget>[
             // InkWell(
             //   onTap: ()
             //     alignment: Al => refreshNotesdownload(),
@@ -54,10 +57,10 @@ class CsvGeneratorDemo extends StatelessWidget {
               SizedBox(height: size.height * 0.20),
               Row(
                 children: [
-                  SizedBox(width: 35),
+                  const SizedBox(width: 35),
                   IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.download,
                         size: 300,
                         color: Colors.white,
@@ -71,7 +74,7 @@ class CsvGeneratorDemo extends StatelessWidget {
                   style: ButtonStyle(
                     elevation: MaterialStateProperty.all(5),
                     shadowColor:  MaterialStateProperty.all(Colors.white),
-                      fixedSize: MaterialStateProperty.all(Size(200, 80))),
+                      fixedSize: MaterialStateProperty.all(const Size(200, 80))),
                   onPressed: () {
                     refreshNotesdownload();
                     const snackBar = SnackBar(
@@ -85,7 +88,7 @@ class CsvGeneratorDemo extends StatelessWidget {
 
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   },
-                  child: Align(
+                  child: const Align(
                     alignment: Alignment.center,
                     child: Text('Download CSV', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
                   ),
@@ -100,7 +103,9 @@ class CsvGeneratorDemo extends StatelessWidget {
   late List<Note> notes;
   Future refreshNotesdownload() async {
     // setState(() => isLoading = true);
-    print("hello");
+    if (kDebugMode) {
+      print("hello");
+    }
 
     notes = await NotesDatabase.instance.readAllNotes();
 
@@ -129,16 +134,19 @@ class CsvGeneratorDemo extends StatelessWidget {
           ]),
     ];
 
-    print("good");
+    if (kDebugMode) {
+      print("good");
+    }
     // print(notes);
     String csv = const ListToCsvConverter().convert(csvData);
 
-    print(csv);
+    if (kDebugMode) {
+      print(csv);
+    }
     // Permission.storage.request(); Directory('/storage/emulated/0/Download')
     Directory? directory = await getExternalStorageDirectory();
-    Directory new_dir = Directory('/storage/emulated/0/Download');
+    Directory newDir = Directory('/storage/emulated/0/Download');
 
-    final path2 = directory?.path;
 
     final String dir = (await getApplicationDocumentsDirectory()).path;
 
@@ -147,16 +155,18 @@ class CsvGeneratorDemo extends StatelessWidget {
     // ignore: prefer_interpolation_to_compose_strings
     // String dire = (await getExternalStorageDirectory())?.absolute.path "/documents";
 
-    Random random = new Random();
-    String randomNumber = random.nextInt(100).toString();
-    DateTime now = new DateTime.now();
+    Random random = Random();
+    // String randomNumber = random.nextInt(100).toString();
+    DateTime now = DateTime.now();
     String date =
-        new DateFormat.Hms().format(now).toString().split(":").toString();
+        DateFormat.Hms().format(now).toString().split(":").toString();
     String today = date.toString();
     // print(today);
-    final path = "${new_dir.path}/users_data_${today}.csv";
+    final path = "${newDir.path}/users_data_$today.csv";
 
-    print(path);
+    if (kDebugMode) {
+      print(path);
+    }
 
     // create file
     final File file = await File(path).create();
@@ -166,13 +176,17 @@ class CsvGeneratorDemo extends StatelessWidget {
 
     await file.writeAsString(csv);
 
-    print("fine");
+    if (kDebugMode) {
+      print("fine");
+    }
 
     // setState(() => isLoading = false);
   }
 
   Future<List<Note>> readAllNotes() async {
-    print("hello");
+    if (kDebugMode) {
+      print("hello");
+    }
 
     final NotesDatabase instance = NotesDatabase.instance;
     final db = await instance.database;
@@ -182,7 +196,9 @@ class CsvGeneratorDemo extends StatelessWidget {
     //     await db.rawQuery('SELECT * FROM $tableNotes ORDER BY $orderBy');
 
     final result = await db.query(tableNotes, orderBy: orderBy);
-    print("hello");
+    if (kDebugMode) {
+      print("hello");
+    }
 
     return result.map((json) => Note.fromJson(json)).toList();
   }

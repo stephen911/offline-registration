@@ -11,6 +11,7 @@ class AddEditNotePage extends StatefulWidget {
     this.note,
   }) : super(key: key);
   @override
+  // ignore: library_private_types_in_public_api
   _AddEditNotePageState createState() => _AddEditNotePageState();
 }
 
@@ -86,14 +87,14 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
         district.isNotEmpty;
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          onPrimary: Colors.white,
-          primary: isFormValid ? Colors.green: Colors.grey.shade700,
+          foregroundColor: Colors.white,
+          backgroundColor: isFormValid ? Colors.green: Colors.grey.shade700,
         ),
         onPressed: addOrUpdateNote,
-        child: Text('Save Info'),
+        child: const Text('Save Info'),
       ),
     );
   }
@@ -111,6 +112,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
                     content: Text('Updated Successfully', style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),),
                   );
 
+                  // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
       } else {
         await addNote();
@@ -119,9 +121,11 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
                     content: Text('Info Added Successfully', style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),),
                   );
 
+                  // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
 
+      // ignore: use_build_context_synchronously
       Navigator.of(context).pop();
     }
   }

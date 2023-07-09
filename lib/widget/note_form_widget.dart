@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class NoteFormWidget extends StatefulWidget {
   final bool? isImportant;
   final int? number;
@@ -50,7 +51,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -73,19 +74,19 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
               //   ],
               // ),
               buildTitle(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               buildDescription(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               buildContact(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               buildLincense(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               buildRegnumber(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               buildRegion(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               buildDistrict(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // buildregio(),
               // SizedBox(height: 16),
               // builddis(),
@@ -98,12 +99,12 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   Widget buildTitle() => TextFormField(
         maxLines: 1,
         initialValue: widget.title,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           // fontSize: 24,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
@@ -112,7 +113,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
             labelText: 'Name',
             focusColor: Colors.white,
             fillColor: Colors.white,
-            prefixIcon: const Icon(
+            prefixIcon: Icon(
               Icons.person,
               color: Colors.white,
             ),
@@ -133,12 +134,12 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
         maxLines: 1,
         initialValue: widget.description,
         keyboardType: TextInputType.emailAddress,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           // fontSize: 24,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
@@ -147,7 +148,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
             labelText: 'Email',
             focusColor: Colors.white,
             fillColor: Colors.white,
-            prefixIcon: const Icon(
+            prefixIcon: Icon(
               Icons.person,
               color: Colors.white,
             ),
@@ -168,12 +169,12 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
         maxLines: 1,
         initialValue: widget.contact,
         keyboardType: TextInputType.phone,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           // fontSize: 24,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
@@ -182,7 +183,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
             labelText: 'Contact',
             focusColor: Colors.white,
             fillColor: Colors.white,
-            prefixIcon: const Icon(
+            prefixIcon: Icon(
               Icons.person,
               color: Colors.white,
             ),
@@ -204,12 +205,12 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
         maxLines: 1,
         initialValue: widget.lincense,
         keyboardType: TextInputType.text,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           // fontSize: 24,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
@@ -218,7 +219,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
             labelText: 'Lincense Number',
             focusColor: Colors.white,
             fillColor: Colors.white,
-            prefixIcon: const Icon(
+            prefixIcon: Icon(
               Icons.person,
               color: Colors.white,
             ),
@@ -240,12 +241,12 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
         maxLines: 1,
         initialValue: widget.contact,
         keyboardType: TextInputType.phone,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           // fontSize: 24,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
@@ -254,7 +255,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
             labelText: 'Registered Number',
             focusColor: Colors.white,
             fillColor: Colors.white,
-            prefixIcon: const Icon(
+            prefixIcon: Icon(
               Icons.person,
               color: Colors.white,
             ),
@@ -319,6 +320,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
     '38': 'TANO SOUTH MUNICIPAL',
   };
 
+  // ignore: non_constant_identifier_names
   final bono_east = {
     '43': 'ATEBUBU-AMANTIN DISTRICT',
     '44': 'KINTAMPO NORTH MUNICIPAL',
@@ -419,6 +421,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
     '144': 'WENCHI MUNICIPAL',
   };
 
+  // ignore: non_constant_identifier_names
   final north_east = {
     '150': 'BUNKPURUGU-NAKPANDURI DISTRICT',
     '151': 'CHEREPONI DISTRICT',
@@ -481,6 +484,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
     '213': 'YILO KROBO MUNICIPAL',
   };
 
+  // ignore: non_constant_identifier_names
   final upper_east = {
     '218': 'BAWKU MUNICIPAL',
     '219': 'BAWKU WEST DISTRICT',
@@ -537,6 +541,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
     '277': 'SOUTH DAYI DISTRICT',
     '278': 'SOUTH TONGU DISTRICT',
   };
+  // ignore: non_constant_identifier_names
   final upper_west = {
     '283': 'DAFFIAMA-BUSSIE-ISSA DISTRICT',
     '284': 'JIRAPA MUNICIPAL',
@@ -550,6 +555,7 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
     '292': 'WA MUNICIPAL',
     '293': 'WA WEST DISTRICT',
   };
+  // ignore: non_constant_identifier_names
   final western_north = {
     '298': 'AOWIN DISTRICT',
     '299': 'BIA EAST DISTRICT',
@@ -581,10 +587,10 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populateGreaterAccra() {
     for (String key in accra.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: accra[key],
         child: Center(
           child: Text(accra[key].toString()),
         ),
-        value: accra[key],
       ));
     }
   }
@@ -592,21 +598,22 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populateahafo() {
     for (String key in ahafo.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: ahafo[key],
         child: Center(
           child: Text(ahafo[key].toString()),
         ),
-        value: ahafo[key],
       ));
     }
   }
 
+  // ignore: non_constant_identifier_names
   void populatebono_east() {
     for (String key in bono_east.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: bono_east[key],
         child: Center(
           child: Text(bono_east[key].toString()),
         ),
-        value: bono_east[key],
       ));
     }
   }
@@ -614,10 +621,10 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populateashanti() {
     for (String key in ashanti.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: ashanti[key],
         child: Center(
           child: Text(ashanti[key].toString()),
         ),
-        value: ashanti[key],
       ));
     }
   }
@@ -625,10 +632,10 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populatecentral() {
     for (String key in central.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: central[key],
         child: Center(
           child: Text(central[key].toString()),
         ),
-        value: central[key],
       ));
     }
   }
@@ -636,21 +643,22 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populatebono() {
     for (String key in bono.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: bono[key],
         child: Center(
           child: Text(bono[key].toString()),
         ),
-        value: bono[key],
       ));
     }
   }
 
+  // ignore: non_constant_identifier_names
   void populatenorth_east() {
     for (String key in north_east.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: north_east[key],
         child: Center(
           child: Text(north_east[key].toString()),
         ),
-        value: north_east[key],
       ));
     }
   }
@@ -658,10 +666,10 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populatenorthern() {
     for (String key in northern.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: northern[key],
         child: Center(
           child: Text(northern[key].toString()),
         ),
-        value: northern[key],
       ));
     }
   }
@@ -669,21 +677,22 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populateeastern() {
     for (String key in eastern.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: eastern[key],
         child: Center(
           child: Text(eastern[key].toString()),
         ),
-        value: eastern[key],
       ));
     }
   }
 
+  // ignore: non_constant_identifier_names
   void populateupper_east() {
     for (String key in upper_east.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: upper_east[key],
         child: Center(
           child: Text(upper_east[key].toString()),
         ),
-        value: upper_east[key],
       ));
     }
   }
@@ -691,10 +700,10 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populatesavannah() {
     for (String key in savannah.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: savannah[key],
         child: Center(
           child: Text(savannah[key].toString()),
         ),
-        value: savannah[key],
       ));
     }
   }
@@ -702,10 +711,10 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populateoti() {
     for (String key in oti.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: oti[key],
         child: Center(
           child: Text(oti[key].toString()),
         ),
-        value: oti[key],
       ));
     }
   }
@@ -713,32 +722,34 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populatevolta() {
     for (String key in volta.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: volta[key],
         child: Center(
           child: Text(volta[key].toString()),
         ),
-        value: volta[key],
       ));
     }
   }
 
+  // ignore: non_constant_identifier_names
   void populateupper_west() {
     for (String key in upper_west.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: upper_west[key],
         child: Center(
           child: Text(upper_west[key].toString()),
         ),
-        value: upper_west[key],
       ));
     }
   }
 
+  // ignore: non_constant_identifier_names
   void populatewestern_north() {
     for (String key in western_north.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: western_north[key],
         child: Center(
           child: Text(western_north[key].toString()),
         ),
-        value: western_north[key],
       ));
     }
   }
@@ -746,76 +757,76 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
   void populatewestern() {
     for (String key in western.keys) {
       menuitems.add(DropdownMenuItem<String>(
+        value: western[key],
         child: Center(
           child: Text(western[key].toString()),
         ),
-        value: western[key],
       ));
     }
   }
 
-  void selected(_value) {
-    if (_value == "GREATER ACCRA") {
+  void selected(value) {
+    if (value == "GREATER ACCRA") {
       menuitems = [];
       populateGreaterAccra();
-    } else if (_value == "AHAFO REGION") {
+    } else if (value == "AHAFO REGION") {
       menuitems = [];
       populateahafo();
-    } else if (_value == "BONO EAST REGION") {
+    } else if (value == "BONO EAST REGION") {
       menuitems = [];
       populatebono_east();
-    } else if (_value == "ASHANTI REGION") {
+    } else if (value == "ASHANTI REGION") {
       menuitems = [];
       populateashanti();
-    } else if (_value == "CENTRAL REGION") {
+    } else if (value == "CENTRAL REGION") {
       menuitems = [];
       populatecentral();
-    } else if (_value == "BONO REGION") {
+    } else if (value == "BONO REGION") {
       menuitems = [];
       populatebono();
-    } else if (_value == "NORTH EAST REGION") {
+    } else if (value == "NORTH EAST REGION") {
       menuitems = [];
       populatenorth_east();
-    } else if (_value == "NORTHERN REGION") {
+    } else if (value == "NORTHERN REGION") {
       menuitems = [];
       populatenorthern();
-    } else if (_value == "EASTERN REGION") {
+    } else if (value == "EASTERN REGION") {
       menuitems = [];
       populateeastern();
-    } else if (_value == "UPPER EAST REGION") {
+    } else if (value == "UPPER EAST REGION") {
       menuitems = [];
       populateupper_east();
-    } else if (_value == "SAVANNAH REGION") {
+    } else if (value == "SAVANNAH REGION") {
       menuitems = [];
       populatesavannah();
-    } else if (_value == "OTI REGION") {
+    } else if (value == "OTI REGION") {
       menuitems = [];
       populateoti();
-    } else if (_value == "VOLTA REGION") {
+    } else if (value == "VOLTA REGION") {
       menuitems = [];
       populatevolta();
-    } else if (_value == "UPPER WEST REGION") {
+    } else if (value == "UPPER WEST REGION") {
       menuitems = [];
       populateupper_west();
-    } else if (_value == "WESTERN NORTH REGION") {
+    } else if (value == "WESTERN NORTH REGION") {
       menuitems = [];
       populatewestern_north();
-    } else if (_value == "WESTERN REGION") {
+    } else if (value == "WESTERN REGION") {
       menuitems = [];
       populatewestern();
     }
     setState(() {
-      value = _value;
+      value = value;
       disabledropdown = false;
-      widget.region = _value;
+      widget.region = value;
       widget.onChangedRegion;
     });
   }
 
-  void secondselected(_value) {
+  void secondselected(value) {
     setState(() {
-      value = _value;
-      widget.district = _value;
+      value = value;
+      widget.district = value;
       widget.onChangedDistrict;
       // widget.region = _value;
     });
@@ -840,53 +851,50 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
           'WESTERN NORTH REGION',
           'WESTERN REGION'
         ].map((String value) {
-          return new DropdownMenuItem<String>(
+          return DropdownMenuItem<String>(
             
             value: value,
-            child: new Text(
+            child: Text(
               value,
             ),
           );
         }).toList(),
-        onChanged: (_value) {
-          selected(_value);
+        onChanged: (value) {
+          selected(value);
 
           setState(() {
-            widget.region = _value;
-            widget.onChangedRegion(_value!);
-            print(widget.onChangedRegion);
-            print(widget.region);
-            print(_value);
+            widget.region = value;
+            widget.onChangedRegion(value!);
           });
         },
         // hint: Text("Select Your Field"),
         hint: value == ""
             ? Row(
-              children: [IconButton(onPressed: (){}, icon: Icon(Icons.location_city, color: Colors.white)),
-                Text("Select Your Region",
+              children: [IconButton(onPressed: (){}, icon: const Icon(Icons.location_city, color: Colors.white)),
+                const Text("Select Your Region",
                     style:
                         TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
               ],
             )
             : Row(
               children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.location_city, color: Colors.white)),
+                IconButton(onPressed: (){}, icon: const Icon(Icons.location_city, color: Colors.white)),
                 Text(
                     widget.region.toString(),
                     style:
-                        TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                        const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
               ],
             ),
 
-        disabledHint: Text(
+        disabledHint: const Text(
           "Disabled",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         menuMaxHeight: 500,
         elevation: 8,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        icon: Icon(Icons.arrow_drop_down_circle),
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        icon: const Icon(Icons.arrow_drop_down_circle),
         iconDisabledColor: Colors.red,
         iconEnabledColor: Colors.green,
         isExpanded: true,
@@ -899,19 +907,19 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
         
         onChanged: disabledropdown
             ? null
-            : (_value) {
-                secondselected(_value);
+            : (value) {
+                secondselected(value);
 
                 setState(() {
-                  widget.district = _value;
-                  widget.onChangedDistrict(_value!);
+                  widget.district = value;
+                  widget.onChangedDistrict(value!);
                 });
               },
         hint: widget.region!.isNotEmpty && widget.district!.isEmpty
             ? Row(
               children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.location_on, color: Colors.white)),
-                Text(
+                IconButton(onPressed: (){}, icon: const Icon(Icons.location_on, color: Colors.white)),
+                const Text(
                     "Select Your District",
                     style:
                         TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -920,27 +928,27 @@ class _NoteFormWidgetState extends State<NoteFormWidget> {
             )
             : Row(
               children: [
-                 IconButton(onPressed: (){}, icon: Icon(Icons.location_on, color: Colors.white)),
+                 IconButton(onPressed: (){}, icon: const Icon(Icons.location_on, color: Colors.white)),
                 Text(
                   
                     widget.district.toString(),
                     style:
-                        TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                        const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
               ],
             ),
         disabledHint: Row(
           children: [
-             IconButton(onPressed: (){}, icon: Icon(Icons.location_on, color: Colors.white)),
-            Text(
+             IconButton(onPressed: (){}, icon: const Icon(Icons.location_on, color: Colors.white)),
+            const Text(
               "First Select Your Region",
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ],
         ),
         elevation: 8,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-        icon: Icon(Icons.arrow_drop_down_circle),
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+        icon: const Icon(Icons.arrow_drop_down_circle),
         iconDisabledColor: Colors.red,
         iconEnabledColor: Colors.green,
         dropdownColor: Colors.grey.shade700,

@@ -8,7 +8,10 @@ import 'package:tucee_registration/page/note_detail_page.dart';
 import 'package:tucee_registration/widget/note_card_widget.dart';
 
 class NotesPage extends StatefulWidget {
+  const NotesPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _NotesPageState createState() => _NotesPageState();
 }
 
@@ -33,7 +36,7 @@ class _NotesPageState extends State<NotesPage> {
   Future refreshNotes() async {
     setState(() => isLoading = true);
 
-    this.notes = await NotesDatabase.instance.readAllNotes();
+    notes = await NotesDatabase.instance.readAllNotes();
 
     setState(() => isLoading = false);
   }
@@ -134,13 +137,13 @@ class _NotesPageState extends State<NotesPage> {
               )
             ])),
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'TUCEE Registration',
             style: TextStyle(fontSize: 24),
           ),
           actions: [
             // Icon(Icons.search),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             show ?
             IconButton(
                 onPressed: () {
@@ -148,14 +151,14 @@ class _NotesPageState extends State<NotesPage> {
                     MaterialPageRoute(builder: (context) => CsvGeneratorDemo()),
                   );
                 },
-                icon: Icon(Icons.download)) : Text("")
+                icon: const Icon(Icons.download)) : const Text("")
           ],
         ),
         body: Center(
           child: isLoading
-              ? CircularProgressIndicator()
+              ? const CircularProgressIndicator()
               : notes.isEmpty
-                  ? Text(
+                  ? const Text(
                       'No Users Available',
                       style: TextStyle(color: Colors.white, fontSize: 24),
                     )
@@ -164,10 +167,10 @@ class _NotesPageState extends State<NotesPage> {
         floatingActionButton: FloatingActionButton(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
-          child: Icon(Icons.person_add),
+          child: const Icon(Icons.person_add),
           onPressed: () async {
             await Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => AddEditNotePage()),
+              MaterialPageRoute(builder: (context) => const AddEditNotePage()),
             );
 
             refreshNotes();
@@ -176,9 +179,9 @@ class _NotesPageState extends State<NotesPage> {
       );
 
   Widget buildNotes() => StaggeredGridView.countBuilder(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         itemCount: notes.length,
-        staggeredTileBuilder: (index) => StaggeredTile.fit(2),
+        staggeredTileBuilder: (index) => const StaggeredTile.fit(2),
         crossAxisCount: 4,
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,

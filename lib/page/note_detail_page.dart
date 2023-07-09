@@ -15,6 +15,7 @@ class NoteDetailPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _NoteDetailPageState createState() => _NoteDetailPageState();
 }
 
@@ -32,7 +33,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Future refreshNote() async {
     setState(() => isLoading = true);
 
-    this.note = await NotesDatabase.instance.readNote(widget.noteId);
+    note = await NotesDatabase.instance.readNote(widget.noteId);
 
     setState(() => isLoading = false);
   }
@@ -40,23 +41,19 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          actions:  [ widget.edit ? editButton() : Text(""), widget.edit ? deleteButton(): Text("")] ,
+          actions:  [ widget.edit ? editButton() : const Text(""), widget.edit ? deleteButton(): const Text("")] ,
         ),
         body: isLoading
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : Column(
               children: [
-                widget.edit ? Text("") :
+                widget.edit ? const Text("") :
                 Container(
-                  child: Text("Inform the Admin If any of your info is Incorrect", style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15),),
-                   margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                     height: MediaQuery.of(context).size.height * 0.05,
                     decoration: BoxDecoration(
                         color: Colors.white54,
-                        boxShadow: <BoxShadow>[
+                        boxShadow: const <BoxShadow>[
                           BoxShadow(
                               offset: Offset(0, 0),
                               color: Colors.white12,
@@ -64,15 +61,19 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                         ],
                         // color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
-                        padding: EdgeInsets.all(12),
+                        padding: const EdgeInsets.all(12),
+                  child: const Text("Inform the Admin If any of your info is Incorrect", style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15),),
 
                 ),
                 Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     height: MediaQuery.of(context).size.height * 0.35,
                     decoration: BoxDecoration(
                         color: Colors.white54,
-                        boxShadow: <BoxShadow>[
+                        boxShadow: const <BoxShadow>[
                           BoxShadow(
                               offset: Offset(0, 0),
                               color: Colors.white12,
@@ -80,75 +81,75 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                         ],
                         // color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: ListView(
-                      padding: EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
                       children: [
                         Text(
                           note.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black87,
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           note.description,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           note.contact,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           note.lincense,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           note.regnumber,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           note.region,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           note.district,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black54,
                               fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           DateFormat.yMMMd().format(note.createdTime),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black45,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                       ],
                     ),
                   ),
@@ -157,7 +158,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
       );
 
   Widget editButton() => IconButton(
-      icon: Icon(Icons.edit_outlined),
+      icon: const Icon(Icons.edit_outlined),
       onPressed: () async {
         if (isLoading) return;
 
@@ -169,10 +170,11 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
       });
 
   Widget deleteButton() => IconButton(
-        icon: Icon(Icons.delete),
+        icon: const Icon(Icons.delete),
         onPressed: () async {
           await NotesDatabase.instance.delete(widget.noteId);
 
+          // ignore: use_build_context_synchronously
           Navigator.of(context).pop();
         },
       );
